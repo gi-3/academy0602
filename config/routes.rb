@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  resources :posts, only:[:new, :create]
+
+  resources :users, only:[:show] do
+    resources :posts, only:[:show]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
