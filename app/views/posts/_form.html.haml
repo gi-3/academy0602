@@ -1,6 +1,6 @@
 %b 週報投稿
 
-= form_for (current_user.posts.build) do |f|
+= form_for (@post) do |f|
   = render 'shared/error_messages', object: f.object
   .field
     = f.text_area :content, placeholder: "Compose new post..."
