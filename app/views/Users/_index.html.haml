@@ -1,0 +1,4 @@
+- User.all.each do |user|
+  - if user.posts.present?
+    %li
+      = link_to user.name, user_path(user)

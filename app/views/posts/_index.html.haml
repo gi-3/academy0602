@@ -1,0 +1,3 @@
+- @user.posts.each do |post|
+  %li
+    = link_to truncate(post.content.lines.first, lingth: 10), user_post_path(post.user, post)

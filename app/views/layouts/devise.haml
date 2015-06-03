@@ -19,8 +19,4 @@
       - else
         = link_to 'サインイン', new_user_registration_path
         = link_to 'ログイン', new_user_session_path
-    .row.content
-      .col-md-3.sid-bar
-        = render 'users/index'
-      .col-md-9.main
-        = yield
+    = yield

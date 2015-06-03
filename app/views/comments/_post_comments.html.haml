@@ -1,0 +1,10 @@
+- @post.comments.each do |comment|
+  - if comment.persisted?
+    %ul.comment
+      %li
+        #{comment.user.name}
+      %li
+        = simple_format(h(comment.body))
+        - if comment.user == current_user
+          = link_to '編集', edit_user_post_comment_path(@user,@post,comment)
+          = link_to '削除', user_post_comment_path(@user,@post,comment), method: :delete
