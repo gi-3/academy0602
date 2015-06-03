@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :set_post, only: [:create, :edit, :update, :destroy] before_action :set_user, only: [:create, :edit, :update, :destroy] before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:create, :edit, :update, :destroy]
+  before_action :set_user, only: [:create, :edit, :update, :destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def create
     @comment = @post.comments.build(comment_params)
@@ -10,7 +12,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit end
+  def edit
+  end
 
   def update
     if @comment.update(comment_params)
@@ -20,7 +23,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy redirect_to user_post_path(@user, @post)
+    @comment.destroy
+    redirect_to user_post_path(@user, @post)
   end
 
 
