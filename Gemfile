@@ -50,7 +50,15 @@ group :development do
   gem 'binding_of_caller'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'erb2haml'
+
+gem 'sqlite3', groups: %w(test development), require: false
+gem 'pg', groups: %w(production), require: false
